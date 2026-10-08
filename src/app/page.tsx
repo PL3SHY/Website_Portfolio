@@ -1,5 +1,4 @@
 import HeaderBand from "@/components/HeaderBand";
-import HeroNetwork from "@/components/HeroNetwork";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { profile, training } from "@/data/profile";
@@ -8,8 +7,8 @@ const link = "text-accent underline underline-offset-4 hover:text-accent-strong"
 
 function SectionTitle({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
-    <h2 id={id} className="scroll-mt-8 flex items-center gap-3 text-2xl font-semibold">
-      <span className="font-mono text-base text-accent" aria-hidden>
+    <h2 id={id} className="scroll-mt-20 flex items-center gap-3 text-2xl font-semibold">
+      <span className="font-mono text-base text-cyan" aria-hidden>
         {"//"}
       </span>
       {children}
@@ -21,7 +20,7 @@ export default function Home() {
   return (
     <>
       <HeaderBand />
-      <header className="border-b border-line">
+      <header className="sticky top-0 z-20 border-b border-line bg-background/90 backdrop-blur">
         <nav className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 text-sm">
           <span className="font-mono font-semibold text-accent-strong">sgb@portfolio:~$</span>
           <div className="flex flex-wrap gap-x-5 gap-y-1 text-muted">
@@ -34,10 +33,9 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-3xl px-5">
-        <section className="pb-16 pt-8">
-          <HeroNetwork />
-          <p className="mt-8 inline-flex items-center gap-2 rounded border border-accent/30 bg-accent-soft px-2.5 py-1 font-mono text-xs text-accent-strong">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+        <section className="pb-16 pt-14">
+          <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
+            <span className="h-1.5 w-1.5 rounded-full bg-green" />
             open to OJT / internships
           </p>
           <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">{profile.name}</h1>
@@ -62,7 +60,7 @@ export default function Home() {
           <SectionTitle id="training">Training</SectionTitle>
           <ul className="mt-6 grid gap-4">
             {training.map((t) => (
-              <li key={t.title} className="border-l-2 border-accent pl-4">
+              <li key={t.title} className="border-l-2 border-cyan pl-4">
                 <p className="font-medium">{t.title}</p>
                 <p className="text-sm text-muted">
                   {t.org}. {t.note}

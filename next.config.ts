@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  devIndicators: false, // hides the dev-only "N" badge
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

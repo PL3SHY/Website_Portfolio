@@ -1,12 +1,18 @@
 import type { Project } from "@/data/projects";
 
+const STATUS_STYLE: Record<Project["status"], string> = {
+  "In progress": "border-green/30 bg-green-soft text-green-strong",
+  "Demo coming soon": "border-accent/30 bg-accent-soft text-accent-strong",
+  Live: "border-green/40 bg-green-soft text-green-strong",
+};
+
 export default function ProjectCard({ project }: { project: Project }) {
   const { title, blurb, stack, status, demoUrl, repoUrl } = project;
   return (
     <article className="flex flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent">
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-        <span className="shrink-0 rounded border border-accent/30 bg-accent-soft px-2 py-0.5 font-mono text-xs text-accent-strong">
+        <span className={`shrink-0 rounded border px-2 py-0.5 font-mono text-xs ${STATUS_STYLE[status]}`}>
           {status}
         </span>
       </div>

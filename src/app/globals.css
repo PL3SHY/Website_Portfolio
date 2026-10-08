@@ -8,9 +8,15 @@
   --muted: #475569;
   --line: #e2e8f0;
   --surface: #f8fafc;
-  --accent: #1d4ed8;
-  --accent-strong: #1e3a8a;
-  --accent-soft: #eff6ff;
+  --accent: #0e7490;
+  --accent-strong: #155e75;
+  --accent-soft: #ecfeff;
+  /* cyan is the main accent; green marks "active" states */
+  --cyan: var(--accent);
+  --cyan-soft: var(--accent-soft);
+  --green: #15803d;
+  --green-soft: #f0fdf4;
+  --green-strong: #14532d;
 }
 
 @theme inline {
@@ -22,6 +28,11 @@
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
+  --color-cyan: var(--cyan);
+  --color-cyan-soft: var(--cyan-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --color-green-strong: var(--green-strong);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -30,7 +41,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  border-top: 3px solid var(--accent);
 }
 
 a:focus-visible {
@@ -40,46 +50,6 @@ a:focus-visible {
 }
 
 ::selection {
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-}
-
-/* DedSec-style header effects */
-.glitch {
-  position: relative;
-  display: inline-block;
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.glitch::before {
-  color: #38bdf8;
-  animation: glitch-a 3.2s infinite steps(1);
-}
-.glitch::after {
-  color: #f43f5e;
-  animation: glitch-b 3.2s infinite steps(1);
-}
-@keyframes glitch-a {
-  0%, 92%, 100% { transform: translate(0); clip-path: inset(0 0 0 0); opacity: 0; }
-  93% { transform: translate(-2px, 0); clip-path: inset(10% 0 55% 0); opacity: 1; }
-  96% { transform: translate(2px, 0); clip-path: inset(60% 0 5% 0); opacity: 1; }
-}
-@keyframes glitch-b {
-  0%, 92%, 100% { transform: translate(0); clip-path: inset(0 0 0 0); opacity: 0; }
-  94% { transform: translate(2px, 0); clip-path: inset(40% 0 30% 0); opacity: 1; }
-  97% { transform: translate(-2px, 0); clip-path: inset(5% 0 70% 0); opacity: 1; }
-}
-.cursor {
-  animation: blink 1s steps(1) infinite;
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .glitch::before, .glitch::after, .cursor { animation: none; opacity: 0; }
+  background: var(--cyan-soft);
+  color: var(--cyan);
 }
