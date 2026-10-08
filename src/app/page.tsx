@@ -1,3 +1,4 @@
+import HeroNetwork from "@/components/HeroNetwork";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { profile, training } from "@/data/profile";
@@ -31,8 +32,9 @@ export default function Home() {
       </header>
 
       <main className="mx-auto w-full max-w-3xl px-5">
-        <section className="py-16">
-          <p className="inline-flex items-center gap-2 rounded border border-accent/30 bg-accent-soft px-2.5 py-1 font-mono text-xs text-accent-strong">
+        <section className="pb-16 pt-8">
+          <HeroNetwork />
+          <p className="mt-8 inline-flex items-center gap-2 rounded border border-accent/30 bg-accent-soft px-2.5 py-1 font-mono text-xs text-accent-strong">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             open to OJT / internships
           </p>
