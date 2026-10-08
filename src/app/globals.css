@@ -43,3 +43,43 @@ a:focus-visible {
   background: var(--accent-soft);
   color: var(--accent-strong);
 }
+
+/* DedSec-style header effects */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.glitch::before {
+  color: #38bdf8;
+  animation: glitch-a 3.2s infinite steps(1);
+}
+.glitch::after {
+  color: #f43f5e;
+  animation: glitch-b 3.2s infinite steps(1);
+}
+@keyframes glitch-a {
+  0%, 92%, 100% { transform: translate(0); clip-path: inset(0 0 0 0); opacity: 0; }
+  93% { transform: translate(-2px, 0); clip-path: inset(10% 0 55% 0); opacity: 1; }
+  96% { transform: translate(2px, 0); clip-path: inset(60% 0 5% 0); opacity: 1; }
+}
+@keyframes glitch-b {
+  0%, 92%, 100% { transform: translate(0); clip-path: inset(0 0 0 0); opacity: 0; }
+  94% { transform: translate(2px, 0); clip-path: inset(40% 0 30% 0); opacity: 1; }
+  97% { transform: translate(-2px, 0); clip-path: inset(5% 0 70% 0); opacity: 1; }
+}
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before, .glitch::after, .cursor { animation: none; opacity: 0; }
+}

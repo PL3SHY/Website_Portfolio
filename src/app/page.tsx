@@ -1,3 +1,4 @@
+import HeaderBand from "@/components/HeaderBand";
 import HeroNetwork from "@/components/HeroNetwork";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
@@ -19,6 +20,7 @@ function SectionTitle({ id, children }: { id?: string; children: React.ReactNode
 export default function Home() {
   return (
     <>
+      <HeaderBand />
       <header className="border-b border-line">
         <nav className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 text-sm">
           <span className="font-mono font-semibold text-accent-strong">sgb@portfolio:~$</span>
