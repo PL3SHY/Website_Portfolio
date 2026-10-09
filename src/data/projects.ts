@@ -22,9 +22,11 @@ export const projects: Project[] = [
     slug: "security-header-auditor",
     title: "Web Security Header Auditor",
     blurb:
-      "A web app that fetches a site and audits its HTTP security headers, built while studying security fundamentals.",
-    stack: ["Python", "FastAPI", "httpx"],
-    status: "Demo coming soon",
+      "Enter a URL and get a graded report on its HTTP security headers, with a plain-language explanation and fix for each. Rebuilt in TypeScript from my original Python (FastAPI and httpx) prototype, with protections against server-side request forgery.",
+    stack: ["TypeScript", "Next.js", "Node.js", "HTTP security"],
+    status: "Live",
+    demoUrl: "/audit",
+    repoUrl: "https://github.com/PL3SHY/Website_Portfolio",
   },
   {
     slug: "commerciales-flores",

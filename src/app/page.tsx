@@ -1,4 +1,3 @@
-import HeaderBand from "@/components/HeaderBand";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { profile, training } from "@/data/profile";
@@ -19,19 +18,6 @@ function SectionTitle({ id, children }: { id?: string; children: React.ReactNode
 export default function Home() {
   return (
     <>
-      <HeaderBand />
-      <header className="sticky top-0 z-20 border-b border-line bg-background/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 text-sm">
-          <span className="font-mono font-semibold text-accent-strong">sgb@portfolio:~$</span>
-          <div className="flex flex-wrap gap-x-5 gap-y-1 text-muted">
-            <a href="#projects" className="hover:text-accent">Projects</a>
-            <a href="#training" className="hover:text-accent">Training</a>
-            <a href="#contact" className="hover:text-accent">Contact</a>
-            <a href={profile.github} className="hover:text-accent">GitHub</a>
-          </div>
-        </nav>
-      </header>
-
       <main className="mx-auto w-full max-w-3xl px-5">
         <section className="pb-16 pt-14">
           <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
@@ -79,10 +65,6 @@ export default function Home() {
           </p>
         </section>
       </main>
-
-      <footer className="border-t border-line py-6 text-center font-mono text-xs text-muted">
-        {profile.name}
-      </footer>
     </>
   );
 }
