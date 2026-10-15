@@ -4,11 +4,10 @@ export type Project = {
   blurb: string;
   stack: string[];
   status: "In progress" | "Demo coming soon" | "Live";
-  demoUrl?: string;
-  repoUrl?: string;
+  demo?: "auditor"; // a live demo that opens inside the card (see page.tsx)
+  links?: { label: string; url: string }[]; // only add a link once its repo is public / the page is live
 };
 
-// Only add repoUrl once the repo is public, and demoUrl once the demo is deployed.
 export const projects: Project[] = [
   {
     slug: "thesis-explainability",
@@ -19,14 +18,17 @@ export const projects: Project[] = [
     status: "In progress",
   },
   {
-    slug: "security-header-auditor",
+    slug: "auditor",
     title: "Web Security Header Auditor",
     blurb:
-      "Enter a URL and get a graded report on its HTTP security headers, with a plain-language explanation and fix for each. Rebuilt in TypeScript from my original Python (FastAPI and httpx) prototype, with protections against server-side request forgery.",
-    stack: ["TypeScript", "Next.js", "Node.js", "HTTP security"],
+      "Enter a URL and get a graded report on its HTTP security headers, with a plain-language explanation and fix for each. Built twice: first as a Python (FastAPI and httpx) app, then in TypeScript for this site, both with protections against server-side request forgery.",
+    stack: ["Python", "FastAPI", "TypeScript", "Next.js", "HTTP security"],
     status: "Live",
-    demoUrl: "/audit",
-    repoUrl: "https://github.com/PL3SHY/Website_Portfolio",
+    demo: "auditor",
+    links: [
+      { label: "Source (Python)", url: "https://github.com/PL3SHY/P1_SecTest" },
+      { label: "Source (TypeScript)", url: "https://github.com/PL3SHY/Website_Portfolio/tree/main/src/lib/audit" },
+    ],
   },
   {
     slug: "commerciales-flores",
