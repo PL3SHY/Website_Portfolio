@@ -26,6 +26,7 @@ export const education = [
     when: "Expected 2027",
     degree: "Bachelor of Science in Computer Science, Major in Data Science (4th year)",
     points: [
+      "GWA: 1.72 (1.0 = highest), through AY 2025-2026",
       "Thesis (in progress): Interactive Web Visualization Tool for Model Explainability using a Hybrid DistilRoBERTa and GraphSAGE Model",
       "Relevant coursework: Data Visualization (Gestalt laws, pre-attentive attributes, cognitive load), Cybersecurity Architecture, Java Programming, Discrete Mathematics",
     ],
