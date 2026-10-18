@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AuditPanel from "@/components/AuditPanel";
 import ProjectCard from "@/components/ProjectCard";
 import RentalDemo from "@/components/RentalDemo";
@@ -22,6 +23,14 @@ export default function Home() {
     <main className="mx-auto w-full max-w-5xl px-5 pt-14 lg:grid lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[22rem_minmax(0,1fr)]">
       {/* Left: who I am. On wide screens it stays in view while the right side scrolls. */}
       <aside className="pb-12 lg:sticky lg:top-24 lg:self-start lg:pb-0">
+        <Image
+          src="/crow.png"
+          alt="A crow holding a knife in its beak"
+          width={320}
+          height={320}
+          priority
+          className="mb-6 aspect-square w-32 rounded-lg border border-line object-cover sm:w-40"
+        />
         <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-green" />
           open to OJT / internships
