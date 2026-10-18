@@ -7,12 +7,13 @@ const STATUS_STYLE: Record<Project["status"], string> = {
   Live: "border-green/40 bg-green-soft text-green-strong",
 };
 
-// `children` is an optional live demo, shown inside the card when the visitor opens it.
+// `children` is an optional live demo, shown in a popup when the visitor clicks "try it live".
 export default function ProjectCard({ project, children }: { project: Project; children?: React.ReactNode }) {
   const { slug, title, blurb, stack, status, links = [] } = project;
   return (
     <article
-      id={slug}
+      // a card with a popup demo has no anchor id, so /#auditor opens the popup without scrolling the page
+      id={children ? undefined : slug}
       className="scroll-mt-20 flex flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent"
     >
       <div className="flex items-start justify-between gap-3">
@@ -30,7 +31,7 @@ export default function ProjectCard({ project, children }: { project: Project; c
         ))}
       </ul>
       {children ? (
-        <ProjectDemo id={slug} links={links}>
+        <ProjectDemo id={slug} title={title} links={links}>
           {children}
         </ProjectDemo>
       ) : (

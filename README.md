@@ -21,7 +21,7 @@ My personal website, where I show the projects I've built. I'm a 4th-year Comput
 ## What's on the site
 
 - **Home page:** who I am, my projects, and my training.
-- **Security Header Auditor:** a working tool inside its own project card. Click **try it live**, type in a website address and it checks the website's built-in safety settings (called "security headers"), gives it a grade from A to F, and explains in plain language what each setting does and how to fix it.
+- **Security Header Auditor:** a working tool that opens in a popup from its project card. Click **try it live** (click the ✕ or outside it to close), type in a website address and it checks the website's built-in safety settings (called "security headers"), gives it a grade from A to F, and explains in plain language what each setting does and how to fix it.
 - **Pixel animation at the top:** a slow, pulsing pattern made of small squares. Click **fx** to change its speed, shape and color, or switch it off. Settings stay on your own device only.
 
 ## How the project is organized
