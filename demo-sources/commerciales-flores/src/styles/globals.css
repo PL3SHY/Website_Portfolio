@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar but keep scroll */
+.custom-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* BLOCKED DATES (PASTEL RED) */
+.calendar-tile-blocked {
+  background: #fecaca !important;   /* red-200 */
+  color: #7f1d1d !important;        /* red-900 */
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.calendar-tile-blocked:hover {
+  background: #fca5a5 !important;   /* red-300 */
+  color: #7f1d1d !important;
+}
+
+/* TODAY (SOLID GREEN) */
+.react-calendar__tile--now {
+  background: #22c55e !important;   /* green-500 */
+  color: #ffffff !important;
+  border: 1px solid #16a34a !important; /* green-600 */
+  border-radius: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+.react-calendar__tile--now:hover {
+  background: #16a34a !important;   /* green-600 */
+  color: #ffffff !important;
+}
+
+/* if today is also disabled */
+.react-calendar__tile--now:disabled {
+  background: #22c55e !important;
+  color: #ffffff !important;
+  opacity: 0.9 !important;
+}
+
+/* if today is selected, selected wins */
+.react-calendar__tile--active.react-calendar__tile--now,
+.react-calendar__tile--rangeStart.react-calendar__tile--now,
+.react-calendar__tile--rangeEnd.react-calendar__tile--now {
+  background: #2563eb !important;   /* blue selected */
+  border-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+/* SELECTED START / END (PASTEL BLUE) */
+.calendar-tile-selected,
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd,
+.react-calendar__tile--active {
+  background: #bfdbfe !important;   /* blue-200 */
+  color: #1e3a8a !important;        /* blue-900 */
+  border-radius: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+.calendar-tile-selected:hover,
+.react-calendar__tile--rangeStart:hover,
+.react-calendar__tile--rangeEnd:hover,
+.react-calendar__tile--active:hover {
+  background: #93c5fd !important;   /* blue-300 */
+  color: #1e3a8a !important;
+}
+
+/* RANGE (SOFT PASTEL BLUE) */
+.calendar-tile-in-range,
+.react-calendar__tile--range {
+  background: #dbeafe !important;   /* blue-100 */
+  color: #1e40af !important;        /* blue-800 */
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.calendar-tile-in-range:hover,
+.react-calendar__tile--range:hover {
+  background: #bfdbfe !important;   /* blue-200 */
+  color: #1e40af !important;
+}
+
+/* RANGE SHAPE FIX */
+.react-calendar__tile--range {
+  border-radius: 0 !important;
+}
+
+.react-calendar__tile--rangeStart {
+  border-top-left-radius: 0.75rem !important;
+  border-bottom-left-radius: 0.75rem !important;
+}
+
+.react-calendar__tile--rangeEnd {
+  border-top-right-radius: 0.75rem !important;
+  border-bottom-right-radius: 0.75rem !important;
+}
+
+/* BLOCKED DAYS MUST OVERRIDE RANGE/SELECTED */
+.react-calendar__tile.calendar-tile-blocked,
+.react-calendar__tile--range.calendar-tile-blocked,
+.react-calendar__tile--rangeStart.calendar-tile-blocked,
+.react-calendar__tile--rangeEnd.calendar-tile-blocked,
+.react-calendar__tile--active.calendar-tile-blocked {
+  background: #fecaca !important;   /* pastel red */
+  color: #7f1d1d !important;
+  border: 1px solid #fca5a5 !important;
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.react-calendar__tile.calendar-tile-blocked:hover,
+.react-calendar__tile--range.calendar-tile-blocked:hover,
+.react-calendar__tile--rangeStart.calendar-tile-blocked:hover,
+.react-calendar__tile--rangeEnd.calendar-tile-blocked:hover,
+.react-calendar__tile--active.calendar-tile-blocked:hover {
+  background: #fca5a5 !important;
+  color: #7f1d1d !important;
+}
+/* DISABLED DAYS */
+.react-calendar__tile:disabled {
+  background: #f1f5f9 !important; /* slate-100 */
+  color: #94a3b8 !important;      /* slate-400 */
+  cursor: not-allowed !important;
+  border-radius: 0.75rem !important;
+}
+
+/* WEEKENDS SHOULD NOT BREAK SELECTED/BLOCKED/DISABLED STATES */
+.react-calendar__month-view__days__day--weekend {
+  color: inherit;
+}
+
+/* SUNDAY TEXT ONLY - only when normal day */
+.react-calendar__month-view__days__day--weekend:not(:disabled):not(.calendar-tile-blocked):not(.calendar-tile-selected):not(.react-calendar__tile--active):not(.react-calendar__tile--range):not(.react-calendar__tile--rangeStart):not(.react-calendar__tile--rangeEnd) {
+  color: #ef4444 !important;
+  font-weight: 600 !important;
+}
+
+/* TODAY MUST STAY SOLID UNLESS SELECTED */
+.react-calendar__tile.react-calendar__tile--now:not(.react-calendar__tile--active):not(.react-calendar__tile--rangeStart):not(.react-calendar__tile--rangeEnd) {
+  background: #22c55e !important;
+  color: #ffffff !important;
+  border: 1px solid #16a34a !important;
+  border-radius: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+.react-calendar__tile.react-calendar__tile--now:not(.react-calendar__tile--active):not(.react-calendar__tile--rangeStart):not(.react-calendar__tile--rangeEnd):hover {
+  background: #16a34a !important;
+  color: #ffffff !important;
+}

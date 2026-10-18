@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+
+# the demo's own dependencies and build output
+demo-sources/**/node_modules/
+demo-sources/**/dist/

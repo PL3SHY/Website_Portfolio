@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Built files of the Commerciales Flores demo (not source code).
     "public/demos/**",
+    // Source of the demo (its own project, with its own tooling).
+    "demo-sources/**",
   ]),
 ]);
 
