@@ -103,7 +103,7 @@ export default function ProjectDemo({
         onClick={(e) => {
           if (e.target === e.currentTarget) requestClose(); // click on the dimmed area
         }}
-        className={`m-auto rounded-xl border border-line bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-[2px] ${
+        className={`m-auto rounded-xl border border-line bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50 ${
           wide
             ? "h-[calc(100dvh-2rem)] w-[min(90rem,calc(100%-2rem))] overflow-hidden open:flex open:flex-col"
             : "max-h-[calc(100dvh-2rem)] w-[min(48rem,calc(100%-2rem))] overflow-y-auto"

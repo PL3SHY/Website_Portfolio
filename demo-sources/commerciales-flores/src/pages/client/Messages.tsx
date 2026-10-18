@@ -4,6 +4,7 @@ import EmptyState from '../../components/common/EmptyState';
 import { formatDate, formatDateTime } from '../../utils/date';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotifications } from '../../contexts/NotificationContext';
+import supabase from '../../supabaseClient';
 import { normalizeLowercaseText } from '../../utils/DataNormalization';
 import SortSelect from '../../components/shared/filters/SortSelect';
 import type { InquirySortOption } from '../../data/sorting';
@@ -320,6 +321,7 @@ type TicketDetailProps = {
   replyDraft: string;
   isSendingReply: boolean;
   isUpdatingStatus: boolean;
+  isMessagingBlocked: boolean;
   onReplyChange: (value: string) => void;
   onSendReply: () => void;
   onReopen: () => void;
@@ -334,6 +336,7 @@ const TicketDetail = React.memo(function TicketDetail({
   replyDraft,
   isSendingReply,
   isUpdatingStatus,
+  isMessagingBlocked,
   onReplyChange,
   onSendReply,
   onReopen,
@@ -469,7 +472,15 @@ const TicketDetail = React.memo(function TicketDetail({
       </div>
 
       <div className="shrink-0 border-t border-gray-100 bg-white p-4 lg:p-6">
-        {ticket.status === 'resolved' ? (
+        {isMessagingBlocked ? (
+          <div className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-800">
+            <p className="font-semibold">Messaging disabled</p>
+            <p className="text-red-700">
+              Your messaging access has been disabled. Please contact support
+              through other available channels.
+            </p>
+          </div>
+        ) : ticket.status === 'resolved' ? (
           <div className="flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
@@ -665,6 +676,27 @@ const [showFilterMenu, setShowFilterMenu] = useState(false);
 const [sortBy, setSortBy] = useState<InquirySortOption>('latest_activity');
 
   const userId = user?.id ?? '';
+
+  // Whether an admin has blocked this customer from messaging.
+  const [isMessagingBlocked, setIsMessagingBlocked] = useState(false);
+
+  useEffect(() => {
+    if (!userId) return;
+    let cancelled = false;
+
+    void supabase
+      .from('users')
+      .select('is_messaging_blocked')
+      .eq('user_id', userId)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!cancelled) setIsMessagingBlocked(Boolean(data?.is_messaging_blocked));
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]);
 
   const filterCounts = useMemo(() => {
   if (!userId) {
@@ -1078,6 +1110,7 @@ const handleFilterSelectFromSheet = useCallback((status: TicketFilterStatus) => 
           replyDraft={currentReply}
           isSendingReply={isSendingReply}
           isUpdatingStatus={isUpdatingStatus}
+          isMessagingBlocked={isMessagingBlocked}
           onReplyChange={(value) => handleReplyChange(selectedTicket.id, value)}
           onSendReply={handleSendReply}
           onReopen={handleReopen}
@@ -1098,6 +1131,7 @@ const handleFilterSelectFromSheet = useCallback((status: TicketFilterStatus) => 
         replyDraft={currentReply}
         isSendingReply={isSendingReply}
         isUpdatingStatus={isUpdatingStatus}
+        isMessagingBlocked={isMessagingBlocked}
         onReplyChange={(value) => handleReplyChange(selectedTicket.id, value)}
         onSendReply={handleSendReply}
         onReopen={handleReopen}

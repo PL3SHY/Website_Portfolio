@@ -140,7 +140,10 @@ export default function HeaderBand() {
     };
 
     const tick = (now: number) => {
-      if (now - last > 33) {
+      // hidden behind a popup (e.g. a demo): skip the work so the popup gets all the CPU
+      if (document.querySelector("dialog[open]")) {
+        last = 0;
+      } else if (now - last > 33) {
         tRef.current += (last ? now - last : 33) / 1000;
         last = now;
         draw();
