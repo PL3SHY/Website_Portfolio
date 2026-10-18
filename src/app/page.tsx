@@ -26,10 +26,10 @@ export default function Home() {
         <Image
           src="/crow.png"
           alt="A crow holding a knife in its beak"
-          width={320}
-          height={320}
+          width={530}
+          height={530}
           priority
-          className="mb-6 aspect-square w-32 rounded-lg border border-line object-cover sm:w-40"
+          className="mb-6 aspect-square w-full max-w-xs rounded-lg border border-line object-cover"
         />
         <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-green" />
