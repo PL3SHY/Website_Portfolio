@@ -16,7 +16,7 @@ Supabase backend is replaced by a small in-memory one, so everything runs in the
 | `mockSupabase.ts` | The stand-in Supabase client: login, storage, realtime, function calls |
 | `seed.ts` | Made-up sample data (people, spaces, bookings, payments, tickets, content) |
 | `install.ts` | Answers the app's few raw `fetch` calls to the backend |
-| `enter.ts`, `DemoBar.tsx` | Entering the demo as the sample client or admin, and resetting the data |
+| `enter.ts` | Entering the demo as the sample client or admin, and resetting the data (used by the entry page and the "Reset demo" buttons in the portal headers) |
 
 The login and sign-up pages are replaced by `src/pages/demo/DemoEntry.tsx`.
 

@@ -1,5 +1,4 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import DemoBar from './demo/DemoBar';
 import { lazy, Suspense, useEffect, type ReactNode } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { DataProvider } from './contexts/DataContext';
@@ -510,7 +509,6 @@ export default function App() {
                   <RoutePrefetcher />
                   <AppRoutes />
                   <SessionManager />
-                  <DemoBar />
                 </PromotionsProvider>
               </PaymentMethodsProvider>
             </ReviewsProvider>

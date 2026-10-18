@@ -39,3 +39,8 @@ export function resetDemo() {
   window.location.hash = '#/';
   window.location.reload();
 }
+
+// Used by the "Reset demo" buttons in the portal headers.
+export function confirmAndReset() {
+  if (window.confirm('Reset all demo data back to the start?')) resetDemo();
+}

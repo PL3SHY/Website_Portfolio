@@ -5,9 +5,11 @@ export default function RentalDemo() {
   return (
     <>
       <p className="border-b border-line bg-surface px-5 py-2 text-xs text-muted">
-        A demo on sample data: nothing here is real and your changes stay in this tab. Use the{" "}
-        <span className="font-mono text-foreground">demo tools</span> button at the bottom right of the demo to sign in as a
-        client or the admin, or to reset it. The screens were built by my teammates; I worked on the backend design.
+        A demo on sample data: nothing here is real and your changes stay in this tab. Use{" "}
+        <span className="font-mono text-foreground">Explore as client</span> or{" "}
+        <span className="font-mono text-foreground">Explore as admin</span> at the top of the demo to go in, and{" "}
+        <span className="font-mono text-foreground">Reset demo</span> (next to Logout) to start over. The screens were
+        built by my teammates; I worked on the backend design.
       </p>
       <iframe
         src="/demos/commerciales-flores/index.html"
