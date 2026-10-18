@@ -3,8 +3,9 @@
 This folder is the source of the interactive demo shown on the portfolio site (the "try it live" popup
 on the Commerciales Flores card).
 
-**What it is:** the front end of the Commerciales Flores rental-management project (a Software Engineering I
-team project, front end built by my teammates, who agreed to its use here), running on sample data. The real
+**What it is:** the Commerciales Flores rental-management project (a Software Engineering I team project,
+built by our group, who agreed to its use here), running on sample data. My part of the original was the backend
+design, the Cloudflare setup and bug fixing. The real
 Supabase backend is replaced by a small in-memory one, so everything runs in the browser and nothing is real.
 
 **My additions** are in `src/demo/`:

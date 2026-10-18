@@ -8,8 +8,8 @@ export default function RentalDemo() {
         A demo on sample data: nothing here is real and your changes stay in this tab. Use{" "}
         <span className="font-mono text-foreground">Explore as client</span> or{" "}
         <span className="font-mono text-foreground">Explore as admin</span> at the top of the demo to go in, and{" "}
-        <span className="font-mono text-foreground">Reset demo</span> (next to Logout) to start over. The screens were
-        built by my teammates; I worked on the backend design.
+        <span className="font-mono text-foreground">Reset demo</span> (next to Logout) to start over. This is our team&apos;s
+        project; my part was the backend design, the Cloudflare setup and bug fixing, plus this demo&apos;s fake backend.
       </p>
       <iframe
         src="/demos/commerciales-flores/index.html"

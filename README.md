@@ -22,7 +22,7 @@ My personal website, where I show the projects I've built. I'm a 4th-year Comput
 
 - **Home page:** who I am, my education, my projects, activities, training and skills (the same information as my CV).
 - **Security Header Auditor:** a working tool that opens in a popup from its project card. Click **try it live** (click the ✕ or outside it to close), type in a website address and it checks the website's built-in safety settings (called "security headers"), gives it a grade from A to F, and explains in plain language what each setting does and how to fix it.
-- **Commerciales Flores demo:** a team project (a rental-management website for a property business) that you can try in a popup. It runs the real screens on made-up sample data, with a fake in-browser "backend" instead of the real one, so you can sign in as a client or an admin, approve a payment, and reset everything. The screens were built by my teammates; I worked on the backend design.
+- **Commerciales Flores demo:** a team project (a rental-management website for a property business) that you can try in a popup. It runs the real screens on made-up sample data, with a fake in-browser "backend" instead of the real one, so you can sign in as a client or an admin, approve a payment, and reset everything. It is our team's project; my part was the backend design, the Cloudflare setup and bug fixing, plus the fake backend for this demo.
 - **Pixel animation at the top:** a slow, pulsing pattern made of small squares. Click **fx** to change its speed, shape and color, or switch it off. Settings stay on your own device only.
 
 ## How the project is organized

@@ -34,7 +34,7 @@ export const projects: Project[] = [
     slug: "commerciales-flores",
     title: "Commerciales Flores: Rental Management",
     blurb:
-      "Team project for Software Engineering I, built for a real property business: a platform for renting units, function halls and parking, with reservations, payments and refunds, billing reminders, support tickets and an admin dashboard. I was the systems analyst: I helped design the backend and database, set up the Cloudflare configuration, and helped debug and fix issues. The front end was built by teammates. The demo runs the real screens on sample data in your browser.",
+      "Team project for Software Engineering I, built for a real property business: a platform for renting units, function halls and parking, with reservations, payments and refunds, billing reminders, support tickets and an admin dashboard. We built it as a team. I was the systems analyst: I helped design the backend and database, set up the Cloudflare configuration, and fixed bugs across the front and back end. The demo runs the real screens on sample data in your browser.",
     stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "Cloudflare"],
     status: "Live",
     demo: "rental",
