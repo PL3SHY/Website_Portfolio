@@ -1,7 +1,7 @@
 import AuditPanel from "@/components/AuditPanel";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-import { profile, training } from "@/data/profile";
+import { activities, education, profile, skills, training } from "@/data/profile";
 
 const link = "text-accent underline underline-offset-4 hover:text-accent-strong";
 
@@ -37,6 +37,28 @@ export default function Home() {
       {/* Right: the work. */}
       <div>
         <section className="pb-16">
+          <SectionTitle id="education">Education</SectionTitle>
+          <ul className="mt-6 grid gap-6">
+            {education.map((e) => (
+              <li key={e.when} className="border-l-2 border-cyan pl-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <p className="font-medium">{e.school}</p>
+                  <p className="font-mono text-xs text-muted">{e.when}</p>
+                </div>
+                <p className="text-sm italic text-muted">{e.degree}</p>
+                {e.points.length > 0 && (
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
+                    {e.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="pb-16">
           <SectionTitle id="projects">Projects</SectionTitle>
           <div className="mt-6 grid gap-4">
             {projects.map((p) => (
@@ -45,6 +67,21 @@ export default function Home() {
               </ProjectCard>
             ))}
           </div>
+        </section>
+
+        <section className="pb-16">
+          <SectionTitle id="activities">Activities</SectionTitle>
+          <ul className="mt-6 grid gap-4">
+            {activities.map((a) => (
+              <li key={a.title} className="border-l-2 border-cyan pl-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <p className="font-medium">{a.title}</p>
+                  <p className="font-mono text-xs text-muted">{a.when}</p>
+                </div>
+                <p className="text-sm text-muted">{a.note}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="pb-16">
@@ -59,6 +96,24 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="pb-16">
+          <SectionTitle id="skills">Skills</SectionTitle>
+          <dl className="mt-6 grid gap-4">
+            {skills.map((g) => (
+              <div key={g.label}>
+                <dt className="font-mono text-xs text-muted">{g.label}</dt>
+                <dd className="mt-1.5 flex flex-wrap gap-2">
+                  {g.items.map((item) => (
+                    <span key={item} className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-xs">
+                      {item}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         <section className="pb-20">
