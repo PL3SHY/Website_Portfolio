@@ -5,7 +5,7 @@ import { usePayments } from "../../contexts/PaymentsContext";
 import { useReservations } from "../../contexts/ReservationsContext";
 import { useUsers } from "../../contexts/UsersContext";
 import LogoutConfirmModal from "../LogoutConfirmModal";
-import { confirmAndReset } from "../../demo/enter";
+import { confirmAndReset, enterAs } from "../../demo/enter";
 import { useInquiries } from "../../contexts/InquiriesContext";
 import ErrorWrapper from "./ErrorWrapper";
 import { AnimatePresence, motion } from "framer-motion";
@@ -27,6 +27,7 @@ import {
   Car,
   BadgePercent,
   RotateCcw,
+  ArrowLeftRight,
 } from "lucide-react";
 
 type AdminNavItem = {
@@ -116,19 +117,12 @@ const pendingReservationsCount = useMemo(() => {
         badge: pendingPaymentsCount,
       },
       {
-        to: "/admin/promotions",
-        icon: BadgePercent,
-        label: "Promos",
-      },
-      {
         to: "/admin/inquiries",
         icon: MessageSquare,
         label: "Inquiries",
         badge: pendingInquiriesCount,
       },
-      { to: "/admin/content", icon: FileText, label: "Content" },
       { to: "/admin/analytics", icon: BarChart3, label: "Analytics" },
-      { to: "/admin/profile", icon: User, label: "Profile" },
       
     ],
     [
@@ -296,10 +290,7 @@ const pendingReservationsCount = useMemo(() => {
                   Welcome,{" "}
                   <span className="text-white font-semibold">{displayName}</span>
                 </span>
-                <NavLink
-                  to="/admin/profile"
-                  className="p-0.5 hover:ring-2 hover:ring-blue-400 rounded-full transition-all"
-                >
+                <div className="p-0.5 rounded-full">
                   <img
                     src={avatarUrl}
                     className="w-9 h-9 rounded-full border border-blue-700 shadow-sm"
@@ -307,8 +298,16 @@ const pendingReservationsCount = useMemo(() => {
                     loading="lazy"
                     decoding="async"
                   />
-                </NavLink>
+                </div>
               </div>
+
+              <button
+                onClick={() => enterAs("client")}
+                title="Switch to the client view"
+                className="flex items-center gap-2 px-3 py-2 text-blue-100 hover:text-white hover:bg-blue-800 rounded-lg transition-colors text-sm font-semibold"
+              >
+                <ArrowLeftRight className="size-4" /> Switch to client
+              </button>
 
               <button
                 onClick={confirmAndReset}
@@ -392,11 +391,7 @@ const pendingReservationsCount = useMemo(() => {
               >
                 <div className="p-6 bg-blue-900 text-white relative">
                   <div className="flex justify-between items-start mb-4">
-                    <NavLink
-                      to="/admin/profile"
-                      onClick={closeMobileNav}
-                      className="relative group"
-                    >
+                    <div className="relative group">
                       <img
                         src={avatarUrl}
                         alt={displayName}
@@ -405,7 +400,7 @@ const pendingReservationsCount = useMemo(() => {
                         decoding="async"
                       />
                       <div className="absolute -bottom-1 -right-1 bg-emerald-500 border-2 border-blue-900 size-4 rounded-full" />
-                    </NavLink>
+                    </div>
 
                     <button
                       onClick={closeMobileNav}
@@ -472,6 +467,15 @@ const pendingReservationsCount = useMemo(() => {
                 </div>
 
                 <div className="p-4 border-t border-gray-50 bg-gray-50/50">
+                  <button
+                    onClick={() => {
+                      closeMobileNav();
+                      enterAs("client");
+                    }}
+                    className="flex items-center gap-3 w-full px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all text-sm font-semibold"
+                  >
+                    <ArrowLeftRight className="size-5" /> Switch to client
+                  </button>
                   <button
                     onClick={() => {
                       closeMobileNav();

@@ -43,10 +43,7 @@ const AdminPayments = lazy(() => import('./pages/admin/Payments'));
 const AdminPaymentMethods = lazy(() => import('./components/admin/payment/AdminPaymentMethods'));
 const AdminReview = lazy(() => import('./pages/admin/Reviews'));
 const AdminInquiries = lazy(() => import('./pages/admin/Inquiries'));
-const AdminContent = lazy(() => import('./pages/admin/Content'));
 const AdminAnalytics = lazy(() => import('./pages/admin/Analytics'));
-const AdminProfile = lazy(() => import('./pages/admin/Profile'));
-const AdminPromotions = lazy(() => import('./components/admin/promos/AdminPromotions'));
 
 // Error Pages
 const UnauthorizePage = lazy(() =>
@@ -142,7 +139,6 @@ function preloadAdminRoutes() {
   void import('./pages/admin/Parking');
   void import('./pages/admin/Payments');
   void import('./pages/admin/Inquiries');
-  void import('./pages/admin/Profile');
 }
 
 function preloadClientRoutes() {
@@ -405,14 +401,6 @@ function AppRoutes() {
           }
         />
         <Route
-          path="promotions"
-          element={
-            <RouteSuspense inLayout>
-              <AdminPromotions />
-            </RouteSuspense>
-          }
-        />
-        <Route
           path="payment-methods"
           element={
             <RouteSuspense inLayout>
@@ -437,26 +425,10 @@ function AppRoutes() {
           }
         />
         <Route
-          path="content"
-          element={
-            <RouteSuspense inLayout>
-              <AdminContent />
-            </RouteSuspense>
-          }
-        />
-        <Route
           path="analytics"
           element={
             <RouteSuspense inLayout>
               <AdminAnalytics />
-            </RouteSuspense>
-          }
-        />
-        <Route
-          path="profile"
-          element={
-            <RouteSuspense inLayout>
-              <AdminProfile />
             </RouteSuspense>
           }
         />

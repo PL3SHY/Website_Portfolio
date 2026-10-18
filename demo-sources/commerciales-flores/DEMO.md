@@ -26,3 +26,9 @@ The login and sign-up pages are replaced by `src/pages/demo/DemoEntry.tsx`.
 The original, unmodified project is the team's repository: https://github.com/averageCoder-byte/Comerciales-Flores
 
 Note: README.md and SETUP.md in this folder are the original project's own documents (unchanged).
+
+## Differences from the original project
+
+- Left out of the demo: the admin **Promos**, **Content** and **Profile** pages (they are not needed to show the system and made the admin menu too wide for the popup).
+- Added: **Switch to client / admin** and **Reset demo** buttons in the portal headers, and the entry page instead of login and sign-up.
+- Fixed in the copy: the **Block / Unblock** button in the admin inquiries chat never changed state, because the contact list did not carry over the "messaging blocked" flag (`src/pages/admin/Inquiries.tsx`). The original project has the same bug.

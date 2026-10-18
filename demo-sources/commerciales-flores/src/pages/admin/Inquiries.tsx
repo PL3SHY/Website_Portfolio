@@ -683,6 +683,9 @@ const ticketMessageMeta = useMemo(() => {
       publicId: user.publicId ?? user.id,
       avatarUrl: user.profilePictureUrl ?? null,
       isActive: true,
+      // The Block / Unblock button reads this. It was never copied over, so the button always
+      // showed "Block" even though the block itself was saved.
+      isMessagingBlocked: Boolean(user.isMessagingBlocked),
       openTicketCount,
       unreadForSupportCount,
       latestTicketAt,

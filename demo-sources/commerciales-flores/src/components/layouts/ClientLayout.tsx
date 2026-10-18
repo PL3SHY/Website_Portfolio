@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNotifications } from "../../contexts/NotificationContext";
 import LogoutConfirmModal from "../LogoutConfirmModal";
-import { confirmAndReset } from "../../demo/enter";
+import { confirmAndReset, enterAs } from "../../demo/enter";
 import { useLocation } from "react-router-dom";
 import ErrorWrapper from "./ErrorWrapper";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -21,6 +21,7 @@ import {
   X,
   Star,
   RotateCcw,
+  ArrowLeftRight,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import ContactSupportModal from "../ContactSupportModal";
@@ -221,6 +222,15 @@ const unreadNotifications = useMemo(
       </div>
 
       <button
+        onClick={() => enterAs("admin")}
+        title="Switch to the admin view"
+        className="flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all text-sm font-semibold"
+      >
+        <ArrowLeftRight className="size-4" />
+        Switch to admin
+      </button>
+
+      <button
         onClick={confirmAndReset}
         title="Reset all demo data"
         className="flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all text-sm font-semibold"
@@ -386,6 +396,15 @@ const unreadNotifications = useMemo(
           >
             <MessageCircle className="size-5 text-gray-400" />
             Help & Support
+          </button>
+          <button
+            onClick={() => {
+              setMobileNavOpen(false);
+              enterAs("admin");
+            }}
+            className="flex items-center gap-3 w-full px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all text-sm font-semibold mt-1"
+          >
+            <ArrowLeftRight className="size-5" /> Switch to admin
           </button>
           <button
             onClick={() => {
