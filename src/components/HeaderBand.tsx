@@ -18,7 +18,7 @@ const THEMES = {
 type Theme = keyof typeof THEMES;
 
 type Settings = { on: boolean; speed: number; arms: number; cell: number; theme: Theme };
-const DEFAULTS: Settings = { on: true, speed: 0.6, arms: 2, cell: 8, theme: "cyan" };
+const DEFAULTS: Settings = { on: true, speed: 0.6, arms: 2, cell: 8, theme: "gray" };
 
 function clamp(n: number, lo: number, hi: number, fallback: number) {
   return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : fallback;
