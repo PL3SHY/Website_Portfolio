@@ -20,11 +20,13 @@ export default function ProjectDemo({
   id,
   title,
   links,
+  wide = false,
   children,
 }: {
   id: string;
   title: string;
   links: Link[];
+  wide?: boolean; // a big popup that gives the demo most of the screen
   children: React.ReactNode;
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -101,7 +103,11 @@ export default function ProjectDemo({
         onClick={(e) => {
           if (e.target === e.currentTarget) requestClose(); // click on the dimmed area
         }}
-        className="m-auto max-h-[calc(100dvh-2rem)] w-[min(48rem,calc(100%-2rem))] overflow-y-auto rounded-xl border border-line bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-[2px]"
+        className={`m-auto rounded-xl border border-line bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-[2px] ${
+          wide
+            ? "h-[calc(100dvh-2rem)] w-[min(90rem,calc(100%-2rem))] overflow-hidden open:flex open:flex-col"
+            : "max-h-[calc(100dvh-2rem)] w-[min(48rem,calc(100%-2rem))] overflow-y-auto"
+        }`}
       >
         <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-background px-5 py-3">
           <h2 id={`${id}-title`} className="text-lg font-semibold">
@@ -116,7 +122,7 @@ export default function ProjectDemo({
             ✕
           </button>
         </div>
-        <div className="p-5">{children}</div>
+        <div className={wide ? "flex min-h-0 flex-1 flex-col" : "p-5"}>{children}</div>
       </dialog>
     </>
   );

@@ -29,11 +29,37 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
 ];
 
+// The Commerciales Flores demo (static files under /demos) is shown in a frame on this same site, and
+// it loads sample avatars and map images over https. It gets its own, still restrictive, rules; the
+// later entry overrides the matching headers above for these paths only.
+const demoCsp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  ...(isDev ? [] : ["upgrade-insecure-requests"]),
+].join("; ");
+
 const nextConfig: NextConfig = {
   /* config options here */
   poweredByHeader: false, // do not advertise the framework
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      {
+        source: "/demos/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: demoCsp },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        ],
+      },
+    ];
   },
   // the auditor used to live on its own page; keep old links working
   async redirects() {

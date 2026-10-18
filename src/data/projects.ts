@@ -4,7 +4,7 @@ export type Project = {
   blurb: string;
   stack: string[];
   status: "In progress" | "Demo coming soon" | "Live";
-  demo?: "auditor"; // a live demo that opens inside the card (see page.tsx)
+  demo?: "auditor" | "rental"; // a live demo that opens in a popup from the card (see page.tsx)
   links?: { label: string; url: string }[]; // only add a link once its repo is public / the page is live
 };
 
@@ -34,8 +34,9 @@ export const projects: Project[] = [
     slug: "commerciales-flores",
     title: "Commerciales Flores: Rental Management",
     blurb:
-      "Course project in Software Engineering I. I handled systems analysis, helped design the backend and database, and set up the site's Cloudflare configuration. The demo will use mock data.",
-    stack: ["Web", "Database design", "Cloudflare"],
-    status: "Demo coming soon",
+      "Team project for Software Engineering I, built for a real property business: a platform for renting units, function halls and parking, with reservations, payments and refunds, billing reminders, support tickets and an admin dashboard. I was the systems analyst: I helped design the backend and database, set up the Cloudflare configuration, and helped debug and fix issues. The front end was built by teammates. The demo runs the real screens on sample data in your browser.",
+    stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "Cloudflare"],
+    status: "Live",
+    demo: "rental",
   },
 ];

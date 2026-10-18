@@ -1,5 +1,6 @@
 import AuditPanel from "@/components/AuditPanel";
 import ProjectCard from "@/components/ProjectCard";
+import RentalDemo from "@/components/RentalDemo";
 import { projects } from "@/data/projects";
 import { activities, education, profile, skills, training } from "@/data/profile";
 
@@ -63,7 +64,7 @@ export default function Home() {
           <div className="mt-6 grid gap-4">
             {projects.map((p) => (
               <ProjectCard key={p.slug} project={p}>
-                {p.demo === "auditor" ? <AuditPanel /> : null}
+                {p.demo === "auditor" ? <AuditPanel /> : p.demo === "rental" ? <RentalDemo /> : null}
               </ProjectCard>
             ))}
           </div>

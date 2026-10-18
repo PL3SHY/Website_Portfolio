@@ -31,7 +31,7 @@ export default function ProjectCard({ project, children }: { project: Project; c
         ))}
       </ul>
       {children ? (
-        <ProjectDemo id={slug} title={title} links={links}>
+        <ProjectDemo id={slug} title={title} links={links} wide={project.demo === "rental"}>
           {children}
         </ProjectDemo>
       ) : (
