@@ -29,7 +29,7 @@ export default function Home() {
           width={530}
           height={530}
           priority
-          className="mb-6 aspect-square w-full max-w-xs rounded-lg border border-line object-cover"
+          className="mb-6 aspect-square w-full max-w-64 rounded-lg border border-line object-cover opacity-90 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
         />
         <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-green" />
