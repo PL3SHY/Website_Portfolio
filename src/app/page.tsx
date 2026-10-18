@@ -23,14 +23,17 @@ export default function Home() {
     <main className="mx-auto w-full max-w-5xl px-5 pt-14 lg:grid lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[22rem_minmax(0,1fr)]">
       {/* Left: who I am. On wide screens it stays in view while the right side scrolls. */}
       <aside className="pb-12 lg:sticky lg:top-24 lg:self-start lg:pb-0">
-        <Image
-          src="/crow.png"
-          alt="A crow holding a knife in its beak"
-          width={530}
-          height={530}
-          priority
-          className="mb-6 aspect-square w-full max-w-64 rounded-lg border border-line object-cover opacity-90 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
-        />
+        {/* Duotone: the photo is turned gray, then multiplied onto the blue background, so
+            shadows go black and highlights go blue. Hidden on phones, where it only takes space. */}
+        <div className="mb-6 hidden w-full max-w-56 overflow-hidden rounded-lg border border-line bg-accent sm:block">
+          <Image
+            src="/crow.png"
+            alt="A crow holding a knife in its beak"
+            width={530}
+            height={530}
+            className="aspect-square w-full object-cover mix-blend-multiply brightness-[1.9] contrast-125 grayscale"
+          />
+        </div>
         <p className="inline-flex items-center gap-2 rounded border border-green/30 bg-green-soft px-2.5 py-1 font-mono text-xs text-green-strong">
           <span className="h-1.5 w-1.5 rounded-full bg-green" />
           open to OJT / internships
